@@ -1,5 +1,5 @@
 'use strict'
-let money = prompt('Ваш месячный доход?');
+let money = +prompt('Ваш месячный доход?');
 let income = 'Фриланс';
 let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
 let deposit = confirm('Есть ли у вас депозит в банке?');
@@ -7,9 +7,6 @@ let mission = 100000;
 let period = 6;
 let budgetDay = money / 30;
 
-
-
-alert('hello world!');
 
 
 console.log(money);
@@ -23,6 +20,18 @@ console.log('Цель заработать' + ' ' + mission + ' ' + 'рубле�
 console.log(addExpenses.toLowerCase());
 console.log(addExpenses.split(', '));
 console.log('Бюджет на день:' + budgetDay);
+
+let showTypeOf = function(data) {
+    console.log(data, typeof(data));
+};
+
+showTypeOf(money);
+showTypeOf(income);
+showTypeOf(deposit);
+
+console.log(typeof income.length);
+
+
 
 
 
@@ -38,16 +47,21 @@ budgetDay = budgetMonth / 30;
  console.log(Math.floor(budgetDay));
 
 
-if(budgetDay > 1200) {
-    console.log('У вас высокий уровень дохода');
-} else if(budgetDay > 600) {
-    console.log('У вас средний уровень дохода');
-} else if(budgetDay > 0) {
-    console.log('К сожалению у вас низкий уровень дохода');
-} else {
-    console.log('Что-то пошло не так');
-    
-}
+let getStatusIncome = function() {
+    if(budgetDay > 1200) {
+        return ('У вас высокий уровень дохода');
+    } else if(budgetDay > 600) {
+        return ('У вас средний уровень дохода');
+    } else if(budgetDay > 0) {
+        return ('К сожалению у вас низкий уровень дохода');
+    } else {
+        return ('Что-то пошло не так');
+        
+    }
+};
+
+console.log(getStatusIncome());
+
 
 
 
